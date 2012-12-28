@@ -75,6 +75,12 @@
                 evt.preventDefault();
                 Home.addWord(formAddWord);
             }, false);
+
+            // On Click on the Delete button
+            document.getElementById("buttonDelete").addEventListener("click", function (evt) {
+                evt.preventDefault();
+                Home.confirmDelete(DataWords.currentItem.idWord);
+            }, false);
         },
 
 
@@ -125,6 +131,30 @@
 
 
 
+        /* Delete a new Word */
+        deleteWord: function (id) {
+            // Delete the word from the DB
+            DataAccess.deleteWordInDB(id);
+
+            // Delete the word from the dataList binding list
+            for (var i = 0; i < DataWords.dataList.length; i++) {
+                if (DataWords.dataList.getItem(i).data.idWord == id) {
+                    DataWords.dataList.splice(i, 1);
+                    break;
+                }
+            }
+
+            if (DataWords.dataList.length > 0) {
+                // Select the first word in the list
+                Home.selectFirstWord();
+            } else {
+                // Display message "No Words"
+                Home.warnNoWords();
+            }
+        },
+
+
+
         /* Reset the form to add a new Word */
         resetFormNewWord: function (form) {
             form.newWordDesignation.value = "";
@@ -167,5 +197,15 @@
             document.getElementById("buttonEdit").disabled = false;
             document.getElementById("buttonDelete").disabled = false;
         },
+
+
+
+        /* Open a popup and ask the user deletion confirmation */
+        confirmDelete: function (idWordToDelete) {
+            var messagePopup = new Windows.UI.Popups.MessageDialog(WinJS.Resources.getString("messageConfirmationDelete").value, WinJS.Resources.getString("confirmation").value);
+            messagePopup.commands.append(new Windows.UI.Popups.UICommand(WinJS.Resources.getString("yesButton").value, function () { Home.deleteWord(idWordToDelete) }));
+            messagePopup.commands.append(new Windows.UI.Popups.UICommand(WinJS.Resources.getString("noButton").value));
+            messagePopup.showAsync();
+        }
     });
 })();

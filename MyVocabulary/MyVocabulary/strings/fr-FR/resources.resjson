@@ -3,6 +3,7 @@
     "appTitle"                  : "My Vocabulary",
     "language"                  : "Langue",
     "type"                      : "Type",
+    "confirmation"              : "Confirmation",
 
     // Column 1
     "newWordLabel"              : "Nouveau mot: *",
@@ -21,9 +22,12 @@
     "addButton"                 : "Ajouter",
     "editButton"                : "Editer",
     "deleteButton"              : "Supprimer",
+    "yesButton"                 : "Oui",
+    "noButton"                  : "Non",
 
     // Message
     "messageNoWord"             : "Pas de mot pour l'instant.",
+    "messageConfirmationDelete" : "Êtes-vous sûr de vouloir supprimer ce mot ?",
 
     // About Settings Charm
     "about"                     : "A propos",

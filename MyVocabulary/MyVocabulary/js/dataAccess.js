@@ -190,6 +190,29 @@
                         callback(newWord);
                     }
                 });
+        },
+
+
+
+        /* Delete a word from database */
+        deleteWordInDB: function (id) {
+            // Open Database
+            SQLite3JS.openAsync(DataAccess.dbPath)
+                // Delete the word
+                .then(function (db) {
+                    console.log('Delete word which has the id ' + id);
+                    return db.runAsync('DELETE FROM Word1 WHERE idWord = ?', [id])
+                }, function (error) {
+                    console.log('Error Deleting a row in Word Table: ' + error.message);
+                })
+
+                // Close Database
+                .then(function (db) {
+                    console.log('Close Database');
+                    db.close();
+                }, function (error) {
+                    console.log('Error Closing Database: ' + error.message);
+                });
         }
     });
 })();
