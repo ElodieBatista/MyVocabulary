@@ -12,6 +12,9 @@
     "editButton"                : "Edit",
     "deleteButton"              : "Delete",
 
+    // Messages
+    "messageNoWord"             : "No words for the moment.",
+
     // About Settings Charm
     "about"                     : "About",
     "support"                   : "Support and informations",

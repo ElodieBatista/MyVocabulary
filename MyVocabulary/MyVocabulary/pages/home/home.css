@@ -39,6 +39,12 @@ div#pageHome {
         -ms-grid-row: 2;
     }
 
+    div#pageHome div#wordMessage {
+        -ms-grid-column: 2;
+        -ms-grid-row: 4;
+        color: rgb(235, 230, 200);
+    }
+
     div#pageHome #wordsListView.win-listview {
         -ms-grid-column: 2;
         -ms-grid-row: 5;

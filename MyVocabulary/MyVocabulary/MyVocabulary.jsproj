@@ -67,6 +67,7 @@
     <Content Include="js\default.js" />
     <Content Include="css\default.css" />
     <Content Include="js\navigator.js" />
+    <Content Include="js\SQLite3.js" />
     <Content Include="pages\about\about.css" />
     <Content Include="pages\about\about.html" />
     <Content Include="pages\about\about.js" />
@@ -81,6 +82,9 @@
   <ItemGroup>
     <PRIResource Include="strings\en-US\resources.resjson" />
     <PRIResource Include="strings\fr-FR\resources.resjson" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\Downloads\SQLite3-WinRT-master\SQLite3-WinRT-master\SQLite3Component\SQLite3Component.vcxproj" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />
   <!-- To modify your build process, add your task inside one of the targets below then uncomment

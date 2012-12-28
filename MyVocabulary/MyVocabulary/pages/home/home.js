@@ -42,6 +42,8 @@
                 if (DataWords.dataList.length > 0) {
                     // Select the first word in the list
                     Home.selectFirstWord();
+                } else {
+                    Home.warnNoWords();
                 }
             });
         },
@@ -78,6 +80,26 @@
                 Home.translationSelectedWordBS.translation = DataWords.currentItem.translation;
                 Home.descriptionSelectedWordBS.description = DataWords.currentItem.description;
             });
-        }
+        },
+
+
+
+        /* Display a message saying there is no words and disable third column */
+        warnNoWords: function () {
+            document.getElementById("wordMessage").innerHTML = WinJS.Resources.getString("messageNoWord").value;
+            Home.translationSelectedWordBS.translation = "";
+            Home.descriptionSelectedWordBS.description = "";
+            document.getElementById("buttonEdit").disabled = true;
+            document.getElementById("buttonDelete").disabled = true;
+        },
+
+
+
+        /* Delete the message saying there is no words and enable third column */
+        deleteWarnNoWords: function () {
+            document.getElementById("wordMessage").innerHTML = "";
+            document.getElementById("buttonEdit").disabled = false;
+            document.getElementById("buttonDelete").disabled = false;
+        },
     });
 })();
