@@ -66,6 +66,25 @@ input[type="submit"]:hover {
     background-color: rgb(0, 138, 138);
 }
 
+input[type="text"],
+textarea,
+select,
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+    background-color: rgba(235, 230, 200, 0.85);
+}
+
+input[type="text"]:hover,
+textarea:hover,
+option:hover {
+    background-color: rgba(205, 225, 220, 0.85);
+}
+
+option:checked {
+    background-color: rgb(0, 170, 170);
+}
+
 
 /* =========================== */
 /* ======= CONTAINERS ======== */
@@ -99,6 +118,15 @@ div.appInformationsBackExtraColumn {
 div#appInformations {
     -ms-grid-column: 2;
     -ms-grid-row: 1;
+}
+
+
+/* =========================== */
+/* ========= DIVERSE ========= */
+/* =========================== */
+p.label {
+    color: rgb(235, 230, 200);
+    font-size: 16px;
 }
 
 

@@ -68,6 +68,7 @@
     <Content Include="css\default.css" />
     <Content Include="js\navigator.js" />
     <Content Include="js\SQLite3.js" />
+    <Content Include="js\utils.js" />
     <Content Include="pages\about\about.css" />
     <Content Include="pages\about\about.html" />
     <Content Include="pages\about\about.js" />

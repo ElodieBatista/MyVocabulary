@@ -11,7 +11,7 @@
 
 
         /* Launch the Database */
-        launchDB: function () {
+        launchDB: function (callback) {
             // Open Database
             SQLite3JS.openAsync(DataAccess.dbPath)
                 // Create Table Language
@@ -132,12 +132,64 @@
                     db.close();
                 }, function (error) {
                     console.log('Error Closing Database: ' + error.message);
+                })
+
+                .then(function () {
+                    if (callback) {
+                        callback();
+                    }
+                });
+        },
+
+
+
+        /* Add a new word to the database */
+        addWordInDB: function (newWord, languageChoosenId, typeChoosenId, callback) {
+            // Open Database
+            SQLite3JS.openAsync(DataAccess.dbPath)
+                // Insert the new Word
+                .then(function (db) {
+                    console.log('Insert a row in Word Table with the word ' + newWord.designation);
+                    return db.runAsync('INSERT INTO Word1 (designation, LanguageId, translation, TypeId, description, modificationdate, known) VALUES (?, ?, ?, ?, ?, ?, ?)', [newWord.designation, languageChoosenId, newWord.translation, typeChoosenId, newWord.description, newWord.modificationdate, false])
+                }, function (error) {
+                    console.log('Error Inserting a row in Language Table: ' + error.message);
+                })
+
+                // Select the new word
+                .then(function (db) {
+                    console.log('Select the word just added');
+                    return db.eachAsync('SELECT designation, translation, description, MAX(modificationdate) as modificationdate, known, idWord, LanguageId, nameLanguage, idLanguage, TypeId, abreviationType, idType FROM Word1, Language1, Type1 WHERE LanguageId = idLanguage AND TypeId = idType', function (row) {
+                        console.log(row.designation + " " + row.translation + " " + row.description + " " + row.LanguageId + " " + row.nameLanguage + " id = " + row.idWord);
+                        newWord = null;
+                        newWord = new DataWords.Word({
+                            designation: row.designation,
+                            translation: row.translation,
+                            description: row.description,
+                            modificationdate: row.modificationdate,
+                            known: row.known == 1 ? DataWords.imageWordKnown : DataWords.imageWordNotKnown,
+                            language: row.nameLanguage,
+                            type: row.abreviationType,
+                            idWord: row.idWord
+                        });
+                    });
+                }, function (error) {
+                    console.log('Error Selecting a row in Word Table: ' + error.message);
+                })
+
+                // Close Database
+                .then(function (db) {
+                    console.log('Close Database');
+                    db.close();
+                }, function (error) {
+                    console.log('Error Closing Database: ' + error.message);
+                })
+
+                // Return the new word added to the DB
+                .then(function () {
+                    if (callback) {
+                        callback(newWord);
+                    }
                 });
         }
     });
-
-
-
-    // Start
-    DataAccess.launchDB();
 })();

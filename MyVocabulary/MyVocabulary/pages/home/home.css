@@ -19,6 +19,34 @@ div#pageHome {
         -ms-grid-rows: 60px 60px 400px 1fr;
     }
 
+    div#pageHome form#formNewWord {
+        -ms-grid-column: 2;
+        -ms-grid-row: 1;
+        display: -ms-grid;
+        -ms-grid-columns: 20px 1fr 35px;
+        -ms-grid-rows: 40px 30px 70px 40px 30px 40px 90px 10px 30px;
+    }
+
+        div#pageHome form#formNewWord div.languageAndType {
+            -ms-grid-column: 2;
+            -ms-grid-row: 3;
+            display: -ms-grid;
+            -ms-grid-columns: 2fr 20px 1fr;
+            -ms-grid-rows: 40px 30px;
+        }
+
+        div#pageHome form#formNewWord input[name="newWordDesignation"]      {   -ms-grid-column: 2;     -ms-grid-row: 2;    }
+        div#pageHome form#formNewWord select#languagesList                  {   -ms-grid-column: 1;     -ms-grid-row: 2;    }
+        div#pageHome form#formNewWord select#typesList                      {   -ms-grid-column: 3;     -ms-grid-row: 2;    }
+        div#pageHome form#formNewWord input[name="newWordTranslation"]      {   -ms-grid-column: 2;     -ms-grid-row: 5;    }
+        div#pageHome form#formNewWord textarea[name="newWordDescription"]   {   -ms-grid-column: 2;     -ms-grid-row: 7;    }
+        div#pageHome form#formNewWord p#labelNewWordDesignation             {   -ms-grid-column: 2;     -ms-grid-row: 1;    }
+        div#pageHome form#formNewWord p#labelNewWordLanguage                {   -ms-grid-column: 1;     -ms-grid-row: 1;    }
+        div#pageHome form#formNewWord p#labelNewWordType                    {   -ms-grid-column: 3;     -ms-grid-row: 1;    }
+        div#pageHome form#formNewWord p#labelNewWordTranslation             {   -ms-grid-column: 2;     -ms-grid-row: 4;    }
+        div#pageHome form#formNewWord p#labelNewWordDescription             {   -ms-grid-column: 2;     -ms-grid-row: 6;    }
+        div#pageHome form#formNewWord input[type="submit"]                  {   -ms-grid-column: 2;     -ms-grid-row: 9;    }
+
 
 /* =========================== */
 /* ======== Section 2 ======== */

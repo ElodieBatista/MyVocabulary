@@ -1,6 +1,15 @@
 ﻿{
     // General
     "appTitle"                  : "My Vocabulary",
+    "language"                  : "Language",
+    "type"                      : "Type",
+
+    // Column 1
+    "newWordLabel"              : "New Word: *",
+    "newWordLanguageLabel"      : "Language: *",
+    "newWordTypeLabel"          : "Type: *",
+    "newWordTranslationLabel"   : "Translation: *",
+    "newWordDescriptionLabel"   : "Description: ",
 
     // Column 2
     "allWords"                  : "All Words",
@@ -9,6 +18,7 @@
     "translation"               : "Translation",
 
     // Buttons
+    "addButton"                 : "Add",
     "editButton"                : "Edit",
     "deleteButton"              : "Delete",
 

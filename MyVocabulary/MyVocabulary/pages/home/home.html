@@ -6,6 +6,7 @@
 
         <!-- MyVocabularyWin8App references -->
         <link href="home.css" rel="stylesheet" />
+        <script src="/js/utils.js"></script>
         <script src="/js/dataWords.js"></script>
         <script src="/js/dataAccess.js"></script>
         <script src="home.js"></script>
@@ -22,6 +23,26 @@
             <section id="section1">
                 <div class="appImage">
                     <div class="appInformationsBack">
+                        <form id="formNewWord" action="/" method="post">
+                            <p id="labelNewWordDesignation" class="label"><span data-win-res="{textContent: 'newWordLabel'}"></span></p>
+                            <input type="text" id="newWordDesignation" name="newWordDesignation" maxlength="50" required />
+
+                            <div class="languageAndType">
+                                <p id="labelNewWordLanguage" class="label"><span data-win-res="{textContent: 'newWordLanguageLabel'}"></span></p>
+                                <select id="languagesList" required></select>
+
+                                <p id="labelNewWordType" class="label"><span data-win-res="{textContent: 'newWordTypeLabel'}"></span></p>
+                                <select id="typesList" required></select>
+                            </div>
+
+                            <p id="labelNewWordTranslation" class="label"><span data-win-res="{textContent: 'newWordTranslationLabel'}"></span></p>
+                            <input type="text" id="newWordTranslation" name="newWordTranslation" maxlength="50" required />
+
+                            <p id="labelNewWordDescription" class="label"><span data-win-res="{textContent: 'newWordDescriptionLabel'}"></span></p>
+                            <textarea name="newWordDescription" style="width: 50px"></textarea>
+
+                            <input type="submit" id="addNewWord" name="addNewWord" data-win-res="{value: 'addButton'}" />
+                        </form>
                     </div>
                 </div>
                 <div class="appInformationsBackExtraColumn"></div>
