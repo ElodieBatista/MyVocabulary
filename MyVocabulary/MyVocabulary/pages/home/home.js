@@ -20,6 +20,12 @@
         translationSelectedWordBS: null,
         descriptionSelectedWordBS: null,
 
+        // Filters
+        filters: [  { name: "filterLanguages",  beginQuery: "LanguageId = ",    isSorter: false     },
+                    { name: "filterTypes",      beginQuery: "TypeId = ",        isSorter: false     },
+                    { name: "filterKnown",      beginQuery: "known = ",         isSorter: false     },
+                    { name: "filterSort",       beginQuery: "",                 isSorter: true      }],
+
 
 
         /* Launch the App */
@@ -44,6 +50,10 @@
                     // Fill Languages list and Types list
                     Utils.List.fillSelectList(document.getElementById("languagesList"), DataWords.languages, "language", "");
                     Utils.List.fillSelectList(document.getElementById("typesList"), DataWords.types, "type", "");
+
+                    // Fill Filters lists
+                    Utils.List.fillSelectList(document.getElementById("filterLanguages"), DataWords.languages, "allLanguages", "");
+                    Utils.List.fillSelectList(document.getElementById("filterTypes"), DataWords.types, "allTypes", "");
 
                     // Apply translations
                     WinJS.Resources.processAll();
@@ -75,6 +85,14 @@
                 evt.preventDefault();
                 Home.addWord(formAddWord);
             }, false);
+
+            // On Change to the Filters
+            for (var i = 0; i < Home.filters.length; i++) {
+                document.getElementById(Home.filters[i].name).addEventListener("change", function (evt) {
+                    evt.preventDefault();
+                    Home.sortAndFilterWords();
+                }, false);
+            }
 
             // On Click on the Delete button
             document.getElementById("buttonDelete").addEventListener("click", function (evt) {
@@ -113,15 +131,22 @@
 
             // Add the new Word to the Database
             DataAccess.addWordInDB(newWord, languageChoosen.idLanguage, typeChoosen.idType, function (newWordAdded) {
-                // Add the new Word to the dataList binding list
-                DataWords.dataList.unshift(newWordAdded);
+                // Delete filters and sorters
+                if (DataWords.partWhereFilterQuery != ""
+                    && DataWords.partWhereFilterQuery != " ORDER BY modificationdate DESC") {
+                    Home.resetFilters();
+                    Home.sortAndFilterWords();
+                } else {
+                    // Add the new Word to the dataList binding list
+                    DataWords.dataList.unshift(newWordAdded);
 
-                if (DataWords.dataList.length == 1) {
-                    // Erase the message "No Words"
-                    Home.deleteWarnNoWords();
+                    if (DataWords.dataList.length == 1) {
+                        // Erase the message "No Words"
+                        Home.deleteWarnNoWords();
 
-                    // Select the first word in the list
-                    Home.selectFirstWord();
+                        // Select the first word in the list
+                        Home.selectFirstWord();
+                    }
                 }
             });
 
@@ -154,6 +179,43 @@
         },
 
 
+        /* Update the list of words regarding the filters */
+        sortAndFilterWords: function () {
+            // Get all values from filters
+            var filtersValues = [];
+            DataWords.partWhereFilterQuery = "";
+            for (var i = 0; i < Home.filters.length; i++) {
+                filtersValues[i] = document.getElementById(Home.filters[i].name).value;
+                if (Home.filters[i].isSorter && filtersValues[i] != "") {
+                    if (filtersValues[i] == "modificationdate") {
+                        DataWords.partWhereFilterQuery += " ORDER BY " + filtersValues[i] + " DESC";
+                    } else {
+                        DataWords.partWhereFilterQuery += " ORDER BY LOWER(" + filtersValues[i] + ") ASC";
+                    }
+                } else if (filtersValues[i] != "") {
+                    DataWords.partWhereFilterQuery += " AND " + Home.filters[i].beginQuery + filtersValues[i];
+                }
+            }
+
+            // Remove all words from "words" array and from the binding list
+            Home.eraseAllList();
+
+            // Get words from the database
+            DataAccess.getWordsFiltered(DataWords.partWhereFilterQuery, function () {
+                if (DataWords.dataList.length > 0) {
+                    // Select the first word in the list
+                    Home.selectFirstWord();
+
+                    // Erase the message from the 2nd column and reactivate the buttons from the third column
+                    Home.deleteWarnNoWords();
+                } else {
+                    // Display a message saying there is no word and disable buttons from the third column
+                    Home.warnNoWords();
+                }
+            });
+        },
+
+
 
         /* Reset the form to add a new Word */
         resetFormNewWord: function (form) {
@@ -176,6 +238,25 @@
                 Home.translationSelectedWordBS.translation = DataWords.currentItem.translation;
                 Home.descriptionSelectedWordBS.description = DataWords.currentItem.description;
             });
+        },
+
+
+
+        /* Erase words list */
+        eraseAllList: function () {
+            while (DataWords.dataList.length > 0) {
+                DataWords.dataList.pop();
+            };
+        },
+
+
+
+        /* Delete all filters and sorters */
+        resetFilters: function () {
+            document.getElementById("filterLanguages").value = "";
+            document.getElementById("filterTypes").value = "";
+            document.getElementById("filterKnown").value = "";
+            document.getElementById("filterSort").value = "modificationdate";
         },
 
 

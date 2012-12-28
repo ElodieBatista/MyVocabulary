@@ -14,6 +14,12 @@
 
     // Column 2
     "allWords"                  : "Tous les mots",
+    "allLanguages"              : "Toutes les langues",
+    "allTypes"                  : "Tous les types",
+    "wordsIKnow"                : "Mots que je connais",
+    "wordsIDontKnow"            : "Mots que je ne connais pas",
+    "sortByLastModification"    : "Trier par date de modification",
+    "sortByAlphabeticalOrder"   : "Trier par ordre alphabétique",
 
     // Column 3
     "translation"               : "Traduction",

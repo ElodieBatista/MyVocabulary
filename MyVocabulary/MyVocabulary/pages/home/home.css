@@ -67,6 +67,23 @@ div#pageHome {
         -ms-grid-row: 2;
     }
 
+    div#pageHome div#filterWordsButton {
+        -ms-grid-column: 2;
+        -ms-grid-row: 3;
+        display: -ms-grid;
+        -ms-grid-columns: 2fr 10px 2fr 10px 2fr 10px 3fr;
+        -ms-grid-rows: 1fr;
+    }
+
+        div#pageHome div#filterWordsButton select#filterLanguages   {   -ms-grid-column: 1;     -ms-grid-row: 1;    }
+        div#pageHome div#filterWordsButton select#filterTypes       {   -ms-grid-column: 3;     -ms-grid-row: 1;    }
+        div#pageHome div#filterWordsButton select#filterKnown       {   -ms-grid-column: 5;     -ms-grid-row: 1;    }
+        div#pageHome div#filterWordsButton select#filterSort        {   -ms-grid-column: 7;     -ms-grid-row: 1;    }
+
+        div#pageHome div#filterWordsButton select {
+            font-size: 14px;
+        }
+
     div#pageHome div#wordMessage {
         -ms-grid-column: 2;
         -ms-grid-row: 4;

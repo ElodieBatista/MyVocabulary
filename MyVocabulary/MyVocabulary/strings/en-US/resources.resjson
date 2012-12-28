@@ -14,6 +14,12 @@
 
     // Column 2
     "allWords"                  : "All Words",
+    "allLanguages"              : "All Languages",
+    "allTypes"                  : "All Types",
+    "wordsIKnow"                : "Words I Know",
+    "wordsIDontKnow"            : "Words I Don't Know",
+    "sortByLastModification"    : "Sort By Modification Date",
+    "sortByAlphabeticalOrder"   : "Sort By Alphabetical Order",
 
     // Column 3
     "translation"               : "Translation",

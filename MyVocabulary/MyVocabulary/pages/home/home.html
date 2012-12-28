@@ -52,6 +52,23 @@
             <section id="section2">
                 <h2 id="wordsTitle"><span data-win-res="{textContent: 'allWords'}"></span></h2>
             
+                <div id="filterWordsButton">
+                    <select id="filterLanguages"></select>
+
+                    <select id="filterTypes"></select>
+
+                    <select id="filterKnown">
+                        <option value="" data-win-res="{label: 'allWords'}"></option>
+                        <option value="1" data-win-res="{label: 'wordsIKnow'}"></option>
+                        <option value="0" data-win-res="{label: 'wordsIDontKnow'}"></option>
+                    </select>
+
+                    <select id="filterSort">
+                        <option value="modificationdate" data-win-res="{label: 'sortByLastModification'}"></option>
+                        <option value="designation" data-win-res="{label: 'sortByAlphabeticalOrder'}"></option>
+                    </select>
+                </div>
+
                 <div id="wordMessage"></div>
 
                 <!-- Template -->

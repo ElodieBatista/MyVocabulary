@@ -42,6 +42,9 @@
         languages: new Array(),
         types: new Array(),
 
+        // Part Where of the Query for filters and sorters
+        partWhereFilterQuery: "",
+
         // Images
         imageWordKnown: "/images/known.png",
         imageWordNotKnown: "/images/notKnown.png"

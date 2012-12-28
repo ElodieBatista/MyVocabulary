@@ -213,6 +213,49 @@
                 }, function (error) {
                     console.log('Error Closing Database: ' + error.message);
                 });
+        },
+
+
+
+        /* Get all words from DB filtered and sorted */
+        getWordsFiltered: function (partWhere, callback) {
+            // Open Database
+            SQLite3JS.openAsync(DataAccess.dbPath)
+                // Select all the words regarding all the filters
+                .then(function (db) {
+                    console.log('Select words filtered');
+                    return db.eachAsync('SELECT designation, translation, description, modificationdate, known, idWord, LanguageId, nameLanguage, idLanguage, TypeId, abreviationType, idType FROM Word1, Language1, Type1 WHERE LanguageId = idLanguage AND TypeId = idType' + partWhere, function (row) {
+                        console.log(row.designation + " " + row.translation + " " + row.description + " " + row.LanguageId + " " + row.nameLanguage + " id = " + row.idWord);
+
+                        // Add each word from database to the dataList binding list
+                        DataWords.dataList.push(new DataWords.Word({
+                            designation: row.designation,
+                            translation: row.translation,
+                            description: row.description,
+                            modificationdate: row.modificationdate,
+                            known: row.known == 1 ? DataWords.imageWordKnown : DataWords.imageWordNotKnown,
+                            language: row.nameLanguage,
+                            type: row.abreviationType,
+                            idWord: row.idWord
+                        }));
+                    });
+                }, function (error) {
+                    console.log('Error Selecting all rows: ' + error.message);
+                })
+
+                // Close Database
+                .then(function (db) {
+                    console.log('Close Database');
+                    db.close();
+                }, function (error) {
+                    console.log('Error Closing Database: ' + error.message);
+                })
+
+                .then(function () {
+                    if (callback) {
+                        callback();
+                    }
+                });
         }
     });
 })();
