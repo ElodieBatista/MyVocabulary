@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Home Page</title>
+
+        <!-- MyVocabularyWin8App references -->
+        <link href="home.css" rel="stylesheet" />
+        <script src="home.js"></script>
+    </head>
+
+    <body>
+        <div id="pageHome" class="page">
+            <!-- App Title -->
+            <header aria-label="Header content" role="banner">
+                <h1 class="appTitle"><span data-win-res="{textContent: 'appTitle'}"></span></h1>
+            </header>
+            
+            <!-- First "column" -->
+            <section id="section1">
+                <div class="appImage">
+                    <div class="appInformationsBack">
+                    </div>
+                </div>
+                <div class="appInformationsBackExtraColumn"></div>
+            </section>
+
+            <!-- Second "column" -->
+            <section id="section2">
+                <h2 id="wordsTitle"><span data-win-res="{textContent: 'allWords'}"></span></h2>
+            </section>
+
+            <!-- Third "column" -->
+            <section id="section3">
+                <h3 id="definitionTitle"><span data-win-res="{textContent: 'translation'}"></span></h3>
+                <div id="backExtraRowDefinition"></div>
+
+                <div id="translation"></div>
+                <div id="description"></div>
+
+                <div class="actionsModification">
+                    <button id="buttonEdit"><span data-win-res="{textContent: 'editButton'}"></span></button>
+                    <button id="buttonDelete"><span data-win-res="{textContent: 'deleteButton'}"></span></button>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>

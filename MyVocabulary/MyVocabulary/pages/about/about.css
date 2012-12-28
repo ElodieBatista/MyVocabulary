@@ -1,0 +1,19 @@
+﻿div#aboutContainer {
+    background-color: rgb(235, 230, 200);
+}
+
+div#aboutTitle {
+    background-color: rgb(0, 170, 170);
+}
+
+div#aboutContent {
+    background-color: rgb(235, 230, 200);
+}
+
+a#contactLink {
+    color: rgb(0, 170, 170);
+}
+
+div#aboutContainer h3 {
+    font-size: 16px;
+}

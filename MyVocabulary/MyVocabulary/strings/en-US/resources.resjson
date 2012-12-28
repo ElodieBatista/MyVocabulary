@@ -1,0 +1,20 @@
+﻿{
+    // General
+    "appTitle"                  : "My Vocabulary",
+
+    // Column 2
+    "allWords"                  : "All Words",
+
+    // Column 3
+    "translation"               : "Translation",
+
+    // Buttons
+    "editButton"                : "Edit",
+    "deleteButton"              : "Delete",
+
+    // About Settings Charm
+    "about"                     : "About",
+    "support"                   : "Support and informations",
+    "version"                   : "Version",
+    "developedBy"               : "Developped by Elodie Batista"
+}

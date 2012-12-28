@@ -1,0 +1,115 @@
+﻿body { background-color: rgb(0, 170, 170); }
+
+#contenthost { height: 100%; width: 100%; }
+
+div.page {
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll;
+}
+
+
+/* =========================== */
+/* ====== HEADER TITLES ====== */
+/* =========================== */
+header[role=banner] {
+    -ms-grid-column: 1;
+    -ms-grid-row: 2;
+    display: -ms-grid;
+    -ms-grid-columns: 120px 1fr;
+    -ms-grid-rows: 1fr;
+}
+
+    header[role=banner] .win-backbutton {
+        margin-left: 39px;
+        margin-top: 11px;
+    }
+
+        header[role=banner] h1.appTitle {
+            -ms-grid-column: 2;
+            -ms-grid-row: 1;
+            color: rgb(235, 230, 200);
+            font-size: 52px;
+            font-family: "Segoe UI Light";
+            font-weight: 600;
+        }
+
+h2, h3 {
+    font-size: 50px;
+    font-family: "Segoe UI Light";
+    font-weight: 600;
+}
+
+h2 { color: white; }
+h3 { color: rgb(89, 89, 89); }
+
+h2#wordsTitle {
+    -ms-grid-column: 2;
+    -ms-grid-row: 2;
+    color: white;
+    font-size: 50px;
+    font-family: "Segoe UI Light";
+    font-weight: 600;
+}
+
+
+/* =========================== */
+/* ========= BUTTONS ========= */
+/* =========================== */
+button, 
+input[type="submit"] {
+    background-color: rgb(0, 170, 170);
+}
+
+button:hover, 
+input[type="submit"]:hover {
+    background-color: rgb(0, 138, 138);
+}
+
+
+/* =========================== */
+/* ======= CONTAINERS ======== */
+/* =========================== */
+div.appInformationsBack {
+    -ms-grid-column: 1;
+    -ms-grid-row: 2;
+    display: -ms-grid;
+    -ms-grid-columns: 20px 1fr;
+    -ms-grid-rows: 1fr;
+    background-color: rgba(13, 13, 13, 0.85);
+}
+
+div.appImage {
+    -ms-grid-column: 2;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 3;
+    display: -ms-grid;
+    -ms-grid-columns: 1fr;
+    -ms-grid-rows: 60px 400px 10px 40px 1fr;
+    background-image: url("/images/books.png");
+    background-size: cover;
+}
+
+div.appInformationsBackExtraColumn {
+    -ms-grid-column: 3;
+    -ms-grid-row: 3;
+    background-color: rgba(13, 13, 13, 0.85);
+}
+
+div#appInformations {
+    -ms-grid-column: 2;
+    -ms-grid-row: 1;
+}
+
+
+@media screen and (-ms-view-state: fullscreen-landscape) {
+}
+
+@media screen and (-ms-view-state: filled) {
+}
+
+@media screen and (-ms-view-state: snapped) {
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+}
