@@ -6,6 +6,8 @@
 
         <!-- MyVocabularyWin8App references -->
         <link href="home.css" rel="stylesheet" />
+        <script src="/js/dataWords.js"></script>
+        <script src="/js/dataAccess.js"></script>
         <script src="home.js"></script>
     </head>
 
@@ -28,6 +30,26 @@
             <!-- Second "column" -->
             <section id="section2">
                 <h2 id="wordsTitle"><span data-win-res="{textContent: 'allWords'}"></span></h2>
+            
+                <!-- Template -->
+                <div id="wordsTemplate" data-win-control="WinJS.Binding.Template">
+                    <div class="word" data-win-bind="data: idWord">
+                        <div class="designation">
+                            <span data-win-bind="textContent: designation"></span>
+                        </div>
+                        <div class="wordType">
+                            <span data-win-bind="textContent: type"></span>
+                        </div>
+                        <div class="wordKnown">
+                            <img src="#" data-win-bind="src: known" alt="KnownImg" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ListView -->
+                <div id="wordsListView" data-win-control="WinJS.UI.ListView" 
+                                        data-win-options="{itemDataSource : DataWords.dataList.dataSource, itemTemplate: select('#wordsTemplate'), selectionMode: 'single', tapBehavior: 'directSelect', layout: {type: WinJS.UI.ListLayout}}">
+                </div>
             </section>
 
             <!-- Third "column" -->
@@ -35,8 +57,8 @@
                 <h3 id="definitionTitle"><span data-win-res="{textContent: 'translation'}"></span></h3>
                 <div id="backExtraRowDefinition"></div>
 
-                <div id="translation"></div>
-                <div id="description"></div>
+                <div id="translation" data-win-bind="innerText: translation"></div>
+                <div id="description" data-win-bind="innerText: description"></div>
 
                 <div class="actionsModification">
                     <button id="buttonEdit"><span data-win-res="{textContent: 'editButton'}"></span></button>
