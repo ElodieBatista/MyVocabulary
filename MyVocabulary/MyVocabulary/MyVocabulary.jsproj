@@ -62,6 +62,7 @@
     <Content Include="images\smalllogo.png" />
     <Content Include="images\splashscreen.png" />
     <Content Include="images\storelogo.png" />
+    <Content Include="images\tapToSeeTranslation.png" />
     <Content Include="js\dataAccess.js" />
     <Content Include="js\dataQuiz.js" />
     <Content Include="js\dataWords.js" />
@@ -79,6 +80,9 @@
     <Content Include="pages\quizPreparation\quizPreparation.css" />
     <Content Include="pages\quizPreparation\quizPreparation.html" />
     <Content Include="pages\quizPreparation\quizPreparation.js" />
+    <Content Include="pages\quiz\quiz.css" />
+    <Content Include="pages\quiz\quiz.html" />
+    <Content Include="pages\quiz\quiz.js" />
     <None Include="MyVocabulary_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

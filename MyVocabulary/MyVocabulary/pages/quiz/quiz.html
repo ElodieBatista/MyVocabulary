@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Quiz Page</title>
+
+        <!-- MyVocabulary references -->
+        <link href="quiz.css" rel="stylesheet" />
+        <script src="quiz.js"></script>
+    </head>
+    <body>
+        <div id="pageQuiz" class="page">
+            <!-- App Title -->
+            <header aria-label="Header content" role="banner">
+                <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+                <h1 class="appTitle"><span data-win-res="{textContent: 'appTitle'}"></span></h1>
+            </header>
+            
+            <!-- First "column" -->
+            <section id="section1">
+                <div class="appImage">
+                    <div class="appInformationsBack">
+                        <div id="appInformations">
+                            <p class="label"><span data-win-res="{ textContent: 'nbWordsRemaining' }"></span><br />
+                                <span id="nbWordsRemaining" class="information" data-win-bind="textContent: nbWordsRemaining"></span>
+                            </p>
+                            <p class="label"><span data-win-res="{ textContent: 'nbWordsKnownBefore' }"></span><br />
+                                <span id="nbWordsKnownBefore" class="information"></span>
+                            </p>
+                            <p class="label"><span data-win-res="{ textContent: 'nbWordsKnownNow' }"></span><br />
+                                <span id="nbWordsKnownNow" class="information" data-win-bind="textContent: nbWordsKnownNow"></span>
+                            </p>
+                            <p class="label"><span data-win-res="{ textContent: 'nbWordsUnknownBefore' }"></span><br />
+                                <span id="nbWordsUnknownBefore" class="information"></span>
+                            </p>
+                            <p class="label"><span data-win-res="{ textContent: 'nbWordsUnknownNow' }"></span><br />
+                                <span id="nbWordsUnknownNow" class="information" data-win-bind="textContent: nbWordsUnknownNow"></span>
+                            </p>
+                            <p class="label"><span data-win-res="{ textContent: 'nbWordsForQuiz' }"></span><br />
+                                <span id="nbWordsForQuiz" class="information"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="appInformationsBackExtraColumn"></div>
+            </section>
+
+            <!-- Second "column" -->
+            <section id="section2">
+                <h2 id="wordsTitle"><span data-win-res="{textContent: 'quiz'}"></span></h2>
+
+                <div id="summaryQuiz">
+                    <p id="labelQuizLanguage" class="label">
+                        <span data-win-res="{textContent: 'quizLanguageLabel'}"></span>
+                        <span id="quizLanguageChoosen"></span>
+                    </p>
+                    <p id="labelQuizType" class="label">
+                        <span data-win-res="{textContent: 'quizTypeLabel'}"></span>
+                        <span id="quizTypeChoosen"></span>
+                    </p>
+                    <p id="labelQuizKnow" class="label">
+                        <span data-win-res="{textContent: 'quizKnowLabel'}"></span>
+                        <span id="quizKnowChoosen"></span>
+                    </p>
+                    <p id="labelQuizKind" class="label">
+                        <span data-win-res="{textContent: 'quizKindLabel'}"></span>
+                        <span id="quizKindChoosen"></span>
+                    </p>
+                </div>
+
+                <div id="quiz">
+                    <div id="wordToFindContainer">
+                        <p><span id="wordToFind" data-win-bind="textContent: designation"></span></p>
+                        <div class="backExtraRow"></div>
+                    </div>
+                    <div id="wordToFindContainerHide" data-win-bind="style.display: display">
+                        <p><span data-win-res="{textContent: 'messageTapSeeWord'}"></span></p>
+                    </div>
+
+                    <div id="translationToFindContainer">
+                        <span id="translationToFind" data-win-bind="textContent: translation"></span><br /><br /><br />
+                        <span id="descriptionToFind" data-win-bind="textContent: description"></span>
+                    </div>
+                    <div id="translationToFindContainerHide" data-win-bind="style.display: display">
+                        <img src="/images/tapToSeeTranslation.png" alt="Tap To see the Translation" />
+                        <p><span data-win-res="{textContent: 'messageTapSeeTranslation'}"></span></p>
+                    </div>
+
+                    <div id="actionsQuiz">
+                        <button id="buttonKnow" data-win-bind="disabled: disabled"><span data-win-res="{textContent: 'knowButton'}"></span></button>
+                        <button id="buttonDontKnow" data-win-bind="disabled: disabled"><span data-win-res="{textContent: 'dontKnowButton'}"></span></button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>

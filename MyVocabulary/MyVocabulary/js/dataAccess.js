@@ -349,6 +349,29 @@
                         callback();
                     }
                 });
+        },
+
+
+
+        /* Update the known propertie of a word in the DB */
+        updateWordKnown: function (id, known) {
+            // Open Database
+            SQLite3JS.openAsync(DataAccess.dbPath)
+                // Select all the words regarding all the filters
+                .then(function (db) {
+                    console.log('Update word known');
+                    return db.runAsync('UPDATE Word1 SET known = ? WHERE idWord = ?', [known, id]);
+                }, function (error) {
+                    console.log('Error Updating the row: ' + error.message);
+                })
+
+                // Close Database
+                .then(function (db) {
+                    console.log('Close Database');
+                    db.close();
+                }, function (error) {
+                    console.log('Error Closing Database: ' + error.message);
+                });
         }
     });
 })();

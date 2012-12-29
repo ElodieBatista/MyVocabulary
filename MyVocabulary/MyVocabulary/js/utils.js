@@ -2,7 +2,6 @@
     "use strict";
 
     WinJS.Namespace.define("Utils.Array", {
-
         /* Return an element from an array which has a certain propertie */
         searchByPropertie: function(array, propertie, wantedValue) {
             for (var i = 0; i < array.length; i++) {
@@ -15,7 +14,6 @@
 
 
     WinJS.Namespace.define("Utils.List", {
-
         /* Fill a Select HTML list with a list of objects whose first propertie is an ID and the second is a NAME */
         fillSelectList: function (list, elements, defaultTitle, defaultValue) {
             // Fill the first option with translation
