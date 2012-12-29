@@ -2,7 +2,6 @@
     "use strict";
 
 
-    // Define Namespace "DataAccess"
     WinJS.Namespace.define("DataAccess", {
 
         // Path to the Database
@@ -58,16 +57,21 @@
 
                 // Select all Rows from Language Table
                 .then(function (db) {
-                    console.log('Select all rows from table Language');
-                    return db.eachAsync('SELECT idLanguage, nameLanguage FROM Language1 ORDER BY nameLanguage', function (row) {
-                        console.log(row.idLanguage + " " + row.nameLanguage);
+                    // Prevent for adding languages again when navigate
+                    if (DataWords.languages.length == 0) {
+                        console.log('Select all rows from table Language');
+                        return db.eachAsync('SELECT idLanguage, nameLanguage FROM Language1 ORDER BY nameLanguage', function (row) {
+                            console.log(row.idLanguage + " " + row.nameLanguage);
 
-                        // For each row in the Language Table, creation of a Language object
-                        DataWords.languages.push(new DataWords.Language({
-                            idLanguage: row.idLanguage,
-                            nameLanguage: row.nameLanguage
-                        }));
-                    });
+                            // For each row in the Language Table, creation of a Language object
+                            DataWords.languages.push(new DataWords.Language({
+                                idLanguage: row.idLanguage,
+                                nameLanguage: row.nameLanguage
+                            }));
+                        });
+                    } else {
+                        return db;
+                    }
                 }, function (error) {
                     console.log('Error Selecting all rows: ' + error.message);
                 })
@@ -89,39 +93,49 @@
 
                 // Select all Rows from Type Table
                 .then(function (db) {
-                    console.log('Select all rows from table Type');
-                    return db.eachAsync('SELECT idType, nameType, abreviationType FROM Type1 ORDER BY nameType', function (row) {
-                        console.log(row.idType + " " + row.nameType + " " + row.abreviationType);
+                    // Prevent for adding types again when navigate
+                    if (DataWords.types.length == 0) {
+                        console.log('Select all rows from table Type');
+                        return db.eachAsync('SELECT idType, nameType, abreviationType FROM Type1 ORDER BY nameType', function (row) {
+                            console.log(row.idType + " " + row.nameType + " " + row.abreviationType);
 
-                        // For each row in the Type Table, creation of a Type object
-                        DataWords.types.push(new DataWords.Type({
-                            idType: row.idType,
-                            nameType: row.nameType,
-                            abreviationType: row.abreviationType
-                        }));
-                    });
+                            // For each row in the Type Table, creation of a Type object
+                            DataWords.types.push(new DataWords.Type({
+                                idType: row.idType,
+                                nameType: row.nameType,
+                                abreviationType: row.abreviationType
+                            }));
+                        });
+                    } else {
+                        return db;
+                    }
                 }, function (error) {
                     console.log('Error Selecting all rows: ' + error.message);
                 })
 
                 // Select all Rows from Word Table
                 .then(function (db) {
-                    console.log('Select all rows from table Word');
-                    return db.eachAsync('SELECT designation, translation, description, modificationdate, known, idWord, LanguageId, nameLanguage, idLanguage, TypeId, abreviationType, idType FROM Word1, Language1, Type1 WHERE LanguageId = idLanguage AND TypeId = idType ORDER BY modificationdate DESC', function (row) {
-                        console.log(row.designation + " " + row.translation + " " + row.description + " " + row.LanguageId + " " + row.nameLanguage + " id = " + row.idWord);
+                    // Prevent for adding words again when navigate
+                    if (DataWords.dataList.length == 0) {
+                        console.log('Select all rows from table Word');
+                        return db.eachAsync('SELECT designation, translation, description, modificationdate, known, idWord, LanguageId, nameLanguage, idLanguage, TypeId, abreviationType, idType FROM Word1, Language1, Type1 WHERE LanguageId = idLanguage AND TypeId = idType ORDER BY modificationdate DESC', function (row) {
+                            console.log(row.designation + " " + row.translation + " " + row.description + " " + row.LanguageId + " " + row.nameLanguage + " id = " + row.idWord);
 
-                        // Add each word from the DB in the dataList binding list
-                        DataWords.dataList.push(new DataWords.Word({
-                            designation: row.designation,
-                            translation: row.translation,
-                            description: row.description,
-                            modificationdate: row.modificationdate,
-                            known: row.known == 1 ? DataWords.imageWordKnown : DataWords.imageWordNotKnown,
-                            language: row.nameLanguage,
-                            type: row.abreviationType,
-                            idWord: row.idWord
-                        }));
-                    });
+                            // Add each word from the DB in the dataList binding list
+                            DataWords.dataList.push(new DataWords.Word({
+                                designation: row.designation,
+                                translation: row.translation,
+                                description: row.description,
+                                modificationdate: row.modificationdate,
+                                known: row.known == 1 ? DataWords.imageWordKnown : DataWords.imageWordNotKnown,
+                                language: row.nameLanguage,
+                                type: row.abreviationType,
+                                idWord: row.idWord
+                            }));
+                        });
+                    } else {
+                        return db;
+                    }
                 }, function (error) {
                     console.log('Error Selecting all rows: ' + error.message);
                 })
@@ -219,6 +233,8 @@
 
         /* Get all words from DB filtered and sorted */
         getWordsFiltered: function (partWhere, callback) {
+            var wordsArray = new Array();
+
             // Open Database
             SQLite3JS.openAsync(DataAccess.dbPath)
                 // Select all the words regarding all the filters
@@ -227,8 +243,8 @@
                     return db.eachAsync('SELECT designation, translation, description, modificationdate, known, idWord, LanguageId, nameLanguage, idLanguage, TypeId, abreviationType, idType FROM Word1, Language1, Type1 WHERE LanguageId = idLanguage AND TypeId = idType' + partWhere, function (row) {
                         console.log(row.designation + " " + row.translation + " " + row.description + " " + row.LanguageId + " " + row.nameLanguage + " id = " + row.idWord);
 
-                        // Add each word from database to the dataList binding list
-                        DataWords.dataList.push(new DataWords.Word({
+                        // Add each word in the array
+                        wordsArray.push(new DataWords.Word({
                             designation: row.designation,
                             translation: row.translation,
                             description: row.description,
@@ -241,6 +257,83 @@
                     });
                 }, function (error) {
                     console.log('Error Selecting all rows: ' + error.message);
+                })
+
+                // Close Database
+                .then(function (db) {
+                    console.log('Close Database');
+                    db.close();
+                }, function (error) {
+                    console.log('Error Closing Database: ' + error.message);
+                })
+
+                .then(function () {
+                    if (callback) {
+                        callback(wordsArray);
+                    }
+                });
+        },
+
+
+
+        /* Count number of words in the database */
+        countWords: function (callback) {
+            // Open Database
+            SQLite3JS.openAsync(DataAccess.dbPath)
+                // Count how many words are in the DB
+                .then(function (db) {
+                    console.log('Count words');
+                    return db.eachAsync('SELECT COUNT(*) as count FROM Word1', function (row) {
+                        console.log(row.count);
+                        DataQuiz.nbWordsInDB = row.count;
+                        DataQuiz.nbWordsForTheQuiz = row.count;
+                    });
+                }, function (error) {
+                    console.log('Error Counting words: ' + error.message);
+                })
+
+                // Count how many words known are in the DB
+                .then(function (db) {
+                    console.log('Count words known');
+                    return db.eachAsync('SELECT COUNT(*) as count, known FROM Word1 WHERE known = 1', function (row) {
+                        console.log(row.count);
+                        DataQuiz.nbWordsKnown = row.count;
+                    });
+                }, function (error) {
+                    console.log('Error Counting words: ' + error.message);
+                })
+
+                // Close Database
+                .then(function (db) {
+                    console.log('Close Database');
+                    db.close();
+                }, function (error) {
+                    console.log('Error Closing Database: ' + error.message);
+                })
+
+                // Return the number of words in the DB
+                .then(function () {
+                    if (callback) {
+                        callback();
+                    }
+                });
+        },
+
+
+
+        /* Get number of words filtered from DB */
+        getNbWordsFiltered: function (partWhere, callback) {
+            // Open Database
+            SQLite3JS.openAsync(DataAccess.dbPath)
+                // Count how many are in the DB regarding the filters
+                .then(function (db) {
+                    console.log('Count words filtered');
+                    return db.eachAsync('SELECT COUNT(*) as count, known, LanguageId, nameLanguage, idLanguage, TypeId, abreviationType, idType FROM Word1, Language1, Type1 WHERE LanguageId = idLanguage AND TypeId = idType' + partWhere, function (row) {
+                        console.log(row.count);
+                        DataQuiz.nbWordsForTheQuiz = row.count;
+                    });
+                }, function (error) {
+                    console.log('Error Counting words filterd: ' + error.message);
                 })
 
                 // Close Database

@@ -99,6 +99,17 @@
                 evt.preventDefault();
                 Home.confirmDelete(DataWords.currentItem.idWord);
             }, false);
+
+            // On Click on the the Quiz button
+            document.getElementById("buttonQuiz").addEventListener("click", function (evt) {
+                evt.preventDefault();
+
+                // Remove all words from the binding list
+                Home.eraseAllList();
+
+                // Navigate to the quizPreparation page
+                WinJS.Navigation.navigate("/pages/quizPreparation/quizPreparation.html");
+            }, false);
         },
 
 

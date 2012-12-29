@@ -1,0 +1,72 @@
+﻿/* =========================== */
+/* =========== PAGE ========== */
+/* =========================== */
+div#pageQuizPreparation {
+    display: -ms-grid;
+    -ms-grid-columns: 500px 1fr;
+    -ms-grid-rows: 60px 80px 1fr;
+}
+
+
+/* =========================== */
+/* ======== Section 1 ======== */
+/* =========================== */
+    div#pageQuizPreparation section#section1 {
+        -ms-grid-column: 1;
+        -ms-grid-row: 3;
+        display: -ms-grid;
+        -ms-grid-columns: 120px 1fr 20px;
+        -ms-grid-rows: 60px 60px 400px 1fr;
+    }
+
+    div#pageQuizPreparation span.information {
+        color: white;
+        font-size: 20px;
+    }
+
+
+/* =========================== */
+/* ======== Section 2 ======== */
+/* =========================== */
+    div#pageQuizPreparation section#section2 {
+        -ms-grid-column: 2;
+        -ms-grid-row: 1;
+        -ms-grid-row-span: 3;
+        display: -ms-grid;
+        -ms-grid-columns: 50px 1fr 50px;
+        -ms-grid-rows: 120px 80px 60px 400px 1fr;
+        background-image: url("/images/blackBackground.jpg");
+        background-size: cover;
+    }
+
+    div#pageQuizPreparation form#formNewQuiz {
+        -ms-grid-column: 2;
+        -ms-grid-row: 4;
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 150px;
+        -ms-grid-rows: 1fr;
+        background-color: rgb(38, 38, 38);
+        padding-left: 50px;
+    }
+
+    div#pageQuizPreparation div#formQuestions {
+        -ms-grid-column: 1;
+        -ms-grid-row: 1;
+    }
+
+    div#pageQuizPreparation input#launchNewQuiz {
+        -ms-grid-column: 2;
+        -ms-grid-row: 1;
+    }
+
+    div#pageQuizPreparation form#formNewQuiz select {
+        background-color: rgba(235, 230, 200, 0.85);
+    }
+
+        div#pageQuizPreparation form#formNewQuiz option:hover  {
+            background-color: rgba(205, 225, 220, 0.85);
+        }
+
+        div#pageQuizPreparation form#formNewQuiz option:checked   {
+            background-color: rgb(0, 170, 170);
+        }

@@ -1,43 +1,61 @@
 ﻿{
     // General
-    "appTitle"                  : "My Vocabulary",
-    "language"                  : "Language",
-    "type"                      : "Type",
-    "confirmation"              : "Confirmation",
+    "appTitle"                      : "My Vocabulary",
+    "language"                      : "Language",
+    "type"                          : "Type",
+    "confirmation"                  : "Confirmation",
 
     // Column 1
-    "newWordLabel"              : "New Word: *",
-    "newWordLanguageLabel"      : "Language: *",
-    "newWordTypeLabel"          : "Type: *",
-    "newWordTranslationLabel"   : "Translation: *",
-    "newWordDescriptionLabel"   : "Description: ",
+    "newWordLabel"                  : "New Word: *",
+    "newWordLanguageLabel"          : "Language: *",
+    "newWordTypeLabel"              : "Type: *",
+    "newWordTranslationLabel"       : "Translation: *",
+    "newWordDescriptionLabel"       : "Description: ",
 
     // Column 2
-    "allWords"                  : "All Words",
-    "allLanguages"              : "All Languages",
-    "allTypes"                  : "All Types",
-    "wordsIKnow"                : "Words I Know",
-    "wordsIDontKnow"            : "Words I Don't Know",
-    "sortByLastModification"    : "Sort By Modification Date",
-    "sortByAlphabeticalOrder"   : "Sort By Alphabetical Order",
+    "allWords"                      : "All Words",
+    "allLanguages"                  : "All Languages",
+    "allTypes"                      : "All Types",
+    "wordsIKnow"                    : "Words I Know",
+    "wordsIDontKnow"                : "Words I Don't Know",
+    "sortByLastModification"        : "Sort By Modification Date",
+    "sortByAlphabeticalOrder"       : "Sort By Alphabetical Order",
 
     // Column 3
-    "translation"               : "Translation",
+    "translation"                   : "Translation",
+
+    // Quiz
+    "newQuizLanguageLabel"          : "Choose the language(s): *",
+    "newQuizTypeLabel"              : "Choose the type(s) of words: *",
+    "newQuizKnowLabel"              : "On what words would you like to be interrogated ? *",
+    "newQuizKindLabel"              : "Choose the kind of test: *",
+    "quiz"                          : "Quiz",
+    "quizPreparation"               : "Quiz Preparation",
+    "findWord"                      : "Find the Word",
+    "findTranslation"               : "Find the Translation",
+    "nbWordsForQuiz"                : "Words for the Quiz: ",
+    "nbWords"                       : "Number of Words: ",
+    "nbWordsKnown"                  : "Words known: ",
+    "nbWordsUnknown"                : "Words unknown: ",
+    "quizCreationImpossible"        : "Quiz Creation Impossible",
 
     // Buttons
-    "addButton"                 : "Add",
-    "editButton"                : "Edit",
-    "deleteButton"              : "Delete",
-    "yesButton"                 : "Yes",
-    "noButton"                  : "No",
+    "addButton"                     : "Add",
+    "editButton"                    : "Edit",
+    "deleteButton"                  : "Delete",
+    "yesButton"                     : "Yes",
+    "noButton"                      : "No",
+    "quizButton"                    : "Start a Quiz!",
+    "quizLaunchButton"              : "Launch the Quiz!",
 
     // Messages
-    "messageNoWord"             : "No words for the moment.",
-    "messageConfirmationDelete" : "Are you sure you want to delete this word ?",
+    "messageNoWord"                 : "No words for the moment.",
+    "messageConfirmationDelete"     : "Are you sure you want to delete this word ?",
+    "messageQuizCreationImpossible" : "You can't create a Quiz that contains 0 words. Please, review some of your choices.",
 
     // About Settings Charm
-    "about"                     : "About",
-    "support"                   : "Support and informations",
-    "version"                   : "Version",
-    "developedBy"               : "Developped by Elodie Batista"
+    "about"                         : "About",
+    "support"                       : "Support and informations",
+    "version"                       : "Version",
+    "developedBy"                   : "Developped by Elodie Batista"
 }

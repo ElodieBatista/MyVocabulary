@@ -1,43 +1,61 @@
 ﻿{
     // General
-    "appTitle"                  : "My Vocabulary",
-    "language"                  : "Langue",
-    "type"                      : "Type",
-    "confirmation"              : "Confirmation",
+    "appTitle"                      : "My Vocabulary",
+    "language"                      : "Langue",
+    "type"                          : "Type",
+    "confirmation"                  : "Confirmation",
 
     // Column 1
-    "newWordLabel"              : "Nouveau mot: *",
-    "newWordLanguageLabel"      : "Langue: *",
-    "newWordTypeLabel"          : "Type: *",
-    "newWordTranslationLabel"   : "Traduction: *",
-    "newWordDescriptionLabel"   : "Description: ",
+    "newWordLabel"                  : "Nouveau mot: *",
+    "newWordLanguageLabel"          : "Langue: *",
+    "newWordTypeLabel"              : "Type: *",
+    "newWordTranslationLabel"       : "Traduction: *",
+    "newWordDescriptionLabel"       : "Description: ",
 
     // Column 2
-    "allWords"                  : "Tous les mots",
-    "allLanguages"              : "Toutes les langues",
-    "allTypes"                  : "Tous les types",
-    "wordsIKnow"                : "Mots que je connais",
-    "wordsIDontKnow"            : "Mots que je ne connais pas",
-    "sortByLastModification"    : "Trier par date de modification",
-    "sortByAlphabeticalOrder"   : "Trier par ordre alphabétique",
+    "allWords"                      : "Tous les mots",
+    "allLanguages"                  : "Toutes les langues",
+    "allTypes"                      : "Tous les types",
+    "wordsIKnow"                    : "Mots que je connais",
+    "wordsIDontKnow"                : "Mots que je ne connais pas",
+    "sortByLastModification"        : "Trier par date de modification",
+    "sortByAlphabeticalOrder"       : "Trier par ordre alphabétique",
 
     // Column 3
-    "translation"               : "Traduction",
+    "translation"                   : "Traduction",
+
+    // Quiz
+    "newQuizLanguageLabel"          : "Choisissez la langue: *",
+    "newQuizTypeLabel"              : "Choisissez le(s) type(s) des mots: *",
+    "newQuizKnowLabel"              : "Sur quels mots voulez-vous être interrogé(e) ? *",
+    "newQuizKindLabel"              : "Choisissez le type du quizz: *",
+    "quiz"                          : "Quizz",
+    "quizPreparation"               : "Préparation du Quizz",
+    "findWord"                      : "Trouver le mot",
+    "findTranslation"               : "Trouver la définition",
+    "nbWordsForQuiz"                : "Mots pour le Quiz: ",
+    "nbWords"                       : "Nombre de mots: ",
+    "nbWordsKnown"                  : "Mots connus: ",
+    "nbWordsUnknown"                : "Mots non connus: ",
+    "quizCreationImpossible"        : "Creation du quizz impossible",
 
     // Buttons
-    "addButton"                 : "Ajouter",
-    "editButton"                : "Editer",
-    "deleteButton"              : "Supprimer",
-    "yesButton"                 : "Oui",
-    "noButton"                  : "Non",
+    "addButton"                     : "Ajouter",
+    "editButton"                    : "Editer",
+    "deleteButton"                  : "Supprimer",
+    "yesButton"                     : "Oui",
+    "noButton"                      : "Non",
+    "quizButton"                    : "Faîtes un Quizz!",
+    "quizLaunchButton"              : "Lancer le Quizz!",
 
     // Message
-    "messageNoWord"             : "Pas de mot pour l'instant.",
-    "messageConfirmationDelete" : "Êtes-vous sûr de vouloir supprimer ce mot ?",
+    "messageNoWord"                 : "Pas de mot pour l'instant.",
+    "messageConfirmationDelete"     : "Êtes-vous sûr de vouloir supprimer ce mot ?",
+    "messageQuizCreationImpossible" : "Vous ne pouvez pas créer un quizz qui contient 0 mots. Essayez de changer certains de vos choix.",
 
     // About Settings Charm
-    "about"                     : "A propos",
-    "support"                   : "Support et renseignements",
-    "version"                   : "Version",
-    "developedBy"               : "Développé par Elodie Batista"
+    "about"                         : "A propos",
+    "support"                       : "Support et renseignements",
+    "version"                       : "Version",
+    "developedBy"                   : "Développé par Elodie Batista"
 }

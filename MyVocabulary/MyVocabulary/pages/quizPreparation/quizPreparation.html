@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Quiz Preparation Page</title>
+
+        <!-- MyVocabulary references -->
+        <script src="/js/utils.js"></script>
+        <link href="quizPreparation.css" rel="stylesheet" />
+        <script src="/js/dataQuiz.js"></script>
+        <script src="quizPreparation.js"></script>
+    </head>
+    <body>
+        <div id="pageQuizPreparation" class="page">
+            <!-- App Title -->
+            <header aria-label="Header content" role="banner">
+                <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+                <h1 class="appTitle"><span data-win-res="{textContent: 'appTitle'}"></span></h1>
+            </header>
+            
+            <!-- First "column" -->
+            <section id="section1">
+                <div class="appImage">
+                    <div class="appInformationsBack">
+                        <div id="appInformations">
+                            <p class="label"><span data-win-res="{ textContent: 'nbWords' }"></span><br />
+                                <span id="nbWords" class="information"></span>
+                            </p>
+                            <p class="label"><span data-win-res="{ textContent: 'nbWordsKnown' }"></span><br />
+                                <span id="nbWordsKnown" class="information"></span>
+                            </p>
+                            <p class="label"><span data-win-res="{ textContent: 'nbWordsUnknown' }"></span><br />
+                                <span id="nbWordsUnknown" class="information"></span>
+                            </p>
+                            <br /><br /><br /><br /><br />
+                            <p class="label"><span data-win-res="{ textContent: 'nbWordsForQuiz' }"></span><br />
+                                <span id="nbWordsForQuiz" class="information" data-win-bind="textContent: nbWords"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="appInformationsBackExtraColumn"></div>
+            </section>
+
+            <!-- Second "column" -->
+            <section id="section2">
+                <h2 id="wordsTitle"><span data-win-res="{textContent: 'quizPreparation'}"></span></h2>
+
+                <form id="formNewQuiz" action="/" method="post">
+                    <div id="formQuestions">
+                        <p id="labelNewQuizLanguage" class="label"><span data-win-res="{textContent: 'newQuizLanguageLabel'}"></span></p>
+                        <select id="languagesList"></select>
+
+                        <p id="labelNewQuizType" class="label"><span data-win-res="{textContent: 'newQuizTypeLabel'}"></span></p>
+                        <select id="typesList"></select>
+
+                        <p id="labelNewQuizKnow" class="label"><span data-win-res="{textContent: 'newQuizKnowLabel'}"></span></p>
+                        <select id="knowList">
+                            <option value="" data-win-res="{label: 'allWords'}"></option>
+                            <option value="1" data-win-res="{label: 'wordsIKnow'}"></option>
+                            <option value="0" data-win-res="{label: 'wordsIDontKnow'}"></option>
+                        </select>
+
+                        <p id="labelNewQuizKind" class="label"><span data-win-res="{textContent: 'newQuizKindLabel'}"></span></p>
+                        <select id="kindList">
+                            <option value="0" data-win-res="{label: 'findWord'}"></option>
+                            <option value="1" data-win-res="{label: 'findTranslation'}"></option>
+                        </select>
+                    </div>
+                    <input type="submit" id="launchNewQuiz" name="launchNewQuiz" data-win-res="{value: 'quizLaunchButton'}" />
+                </form>
+            </section>
+        </div>
+    </body>
+</html>
