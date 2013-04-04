@@ -1,4 +1,4 @@
-MyVocabulary is a simple Windows 8 application to help language learners learn new words and their meanings.
+A simple Windows 8 application to help language learners learn new words and their meanings.
 
 Technologies used: JavaScript, WinJs, HTML5 and CSS3.
 
